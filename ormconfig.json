@@ -1,0 +1,13 @@
+{
+  "logging": false,
+  "entities": [
+    "src/entity/index.ts",
+    "dist/**/entity/*.entity{.ts,.js}"],
+  "migrations": [ "src/migration/**/*.ts"
+  ],
+  "subscribers": [ "src/subscriber/**/*.ts"
+  ],
+  "cli": {
+    "entitiesDir":"src/**/entity/**/*.ts", "migrationsDir":"src/migration", "subscribersDir":"src/subscriber"
+  }
+}
