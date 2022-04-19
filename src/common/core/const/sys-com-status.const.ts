@@ -1,4 +1,6 @@
-export const STS_YES = 'Y';
-export const STS_NO = 'N';
-export const STS_TRUE = '1';
-export const STS_FALSE = '0';
+export enum SysComStatusConst {
+  STS_YES = 'Y',
+  STS_NO = 'N',
+  STS_TRUE = '1',
+  STS_FALSE = '0',
+}

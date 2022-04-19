@@ -30,7 +30,7 @@ export class IBaseEntity {
   @Exclude()
   @Column({
     name: 'DEL_FLAG',
-    default: STS_NO,
+    default: 'N',
     nullable: false,
     comment: 'Del Flag',
   })

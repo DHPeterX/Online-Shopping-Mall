@@ -29,6 +29,10 @@ export class MemberPromoteHistoryEntity extends IBaseEntity {
   @Column({ name: 'OCCR_TIR_CD', nullable: true, length: 2 })
   occrGradeCd: string;
 
-  @Column({ name: 'ACTIVE_YN', nullable: false, default: STS_NO })
+  @Column({
+    name: 'ACTIVE_YN',
+    nullable: false,
+    default: SysComStatusConst.STS_NO,
+  })
   activeYn: string;
 }

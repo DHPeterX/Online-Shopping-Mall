@@ -1,6 +1,6 @@
+import { SysComStatusConst } from 'src/common/core/const/sys-com-status.const';
 import { IBaseEntity } from 'src/common/web/base/i-base.entity';
 import { Column, Entity } from 'typeorm';
-import {STS_NO} from "../../common/core/const/sys-com-status.const";
 
 @Entity('SYS_DICT_SEL_TAG')
 export class SysDictSelTag extends IBaseEntity {
@@ -31,9 +31,17 @@ export class SysDictSelTag extends IBaseEntity {
   @Column({ name: 'ORDER_COL' })
   orderByCols: string;
 
-  @Column({ name: 'USE_YN', nullable: false, default: STS_NO })
+  @Column({
+    name: 'USE_YN',
+    nullable: false,
+    default: SysComStatusConst.STS_NO,
+  })
   useYn: string;
 
-  @Column({ name: 'CACHE_YN', nullable: false, default: STS_NO })
+  @Column({
+    name: 'CACHE_YN',
+    nullable: false,
+    default: SysComStatusConst.STS_NO,
+  })
   cacheYn: string;
 }
