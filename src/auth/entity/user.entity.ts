@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  Generated,
-  PrimaryColumn,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 import { IBaseEntity } from 'src/common/web/base/i-base.entity';
 
 @Entity('SYS_USER')
