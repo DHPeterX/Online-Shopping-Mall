@@ -1,6 +1,7 @@
 import { IBaseEntity } from '../../common/web/base/i-base.entity';
 import { Column, Entity } from 'typeorm';
 import internal from 'stream';
+import { SysComStatusConst } from 'src/common/core/const/sys-com-status.const';
 
 @Entity('TB_CL_MBR_PROMOTE_HST')
 export class MemberPromoteHistoryEntity extends IBaseEntity {
@@ -24,10 +25,10 @@ export class MemberPromoteHistoryEntity extends IBaseEntity {
   occrGradeCd: string;
 
   @Column({ name: 'CURR_TIR_CD', nullable: true, length: 2 })
-  currGradeCd: string;
+  currTierCd: string;
 
   @Column({ name: 'OCCR_TIR_CD', nullable: true, length: 2 })
-  occrGradeCd: string;
+  occrTierCd: string;
 
   @Column({
     name: 'ACTIVE_YN',
