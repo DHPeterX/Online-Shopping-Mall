@@ -7,6 +7,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { MembersModule } from './members/members.module';
 import { PromotionModule } from './promotion/promotion.module';
 import { SystemModule } from './system/system.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { SystemModule } from './system/system.module';
     TasksModule,
     MembersModule,
     PromotionModule,
+    ProductModule
   ],
 })
 export class AppModule { }
