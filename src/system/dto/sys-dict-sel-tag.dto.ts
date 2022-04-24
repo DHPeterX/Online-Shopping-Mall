@@ -3,4 +3,7 @@ export class SysDictSelTagDto{
     dictSelKey:string;
     dictSelLabel:string;
     dictSelHint:string;
+    filByCol01:string;
+    filByCol02:string;
+    orderBy:string;
 }

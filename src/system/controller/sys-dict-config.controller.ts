@@ -4,4 +4,6 @@ import {Controller, Logger} from '@nestjs/common';
 export class SysDictConfigController {
 
     private logger = new Logger('SysDictConfigController', { timestamp: true });
+
+
 }

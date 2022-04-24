@@ -1,6 +1,4 @@
-import { string } from '@hapi/joi';
 import {Body, Controller, Get, Logger, Param, Post} from '@nestjs/common';
-import {SysDictSelTag} from "../entity/sys-dict-sel-tag.entity";
 import {SysDictSelTagDto} from "../dto/sys-dict-sel-tag.dto";
 
 @Controller('/sys-comm')

@@ -3,7 +3,7 @@ import { IBaseEntity } from 'src/common/web/base/i-base.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity('SYS_DICT_SEL_TAG')
-export class SysDictSelTag extends IBaseEntity {
+export class SysDictSelTagEntity extends IBaseEntity {
   @Column({ name: 'SYS_DB_SCHEMA' })
   sysSchema: string;
 
