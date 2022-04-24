@@ -5,6 +5,7 @@ import { SysComStatusConst } from '../../common/core/const/sys-com-status.const'
 
 @Entity('SYS_DICT_CONFIG')
 export class SysDictConfigEntity extends IBaseEntity {
+
   @Column({ name: 'SYS_CONFIG_KEY', unique: true })
   sysConfigKey: string;
 

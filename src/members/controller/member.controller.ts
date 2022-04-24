@@ -28,6 +28,7 @@ export class MemberController extends IBaseController {
     @Param('id') id: string,
     @Body() inParams: any,
   ): Promise<MemberBasicInfoDto> {
+    //TODO
     return;
   }
 

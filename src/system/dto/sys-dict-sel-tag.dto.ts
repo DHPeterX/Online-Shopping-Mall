@@ -5,5 +5,6 @@ export class SysDictSelTagDto{
     dictSelHint:string;
     filByCol01:string;
     filByCol02:string;
+    filByCol03:string;
     orderBy:string;
 }
