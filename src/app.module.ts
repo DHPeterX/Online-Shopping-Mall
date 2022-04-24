@@ -8,6 +8,8 @@ import { MembersModule } from './members/members.module';
 import { PromotionModule } from './promotion/promotion.module';
 import { SystemModule } from './system/system.module';
 import { ProductModule } from './product/product.module';
+import { DeliveryModule } from './delivery/delivery.module';
+import { AreaModule } from './area/area.module';
 
 @Module({
   imports: [
@@ -44,7 +46,9 @@ import { ProductModule } from './product/product.module';
     TasksModule,
     MembersModule,
     PromotionModule,
-    ProductModule
+    ProductModule,
+    DeliveryModule,
+    AreaModule
   ],
 })
 export class AppModule { }
