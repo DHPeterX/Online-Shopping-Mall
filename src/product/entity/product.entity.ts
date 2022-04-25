@@ -9,44 +9,33 @@ export class Product {
     @PrimaryColumn({ name: 'PROD_UID', default: () => 'gen_random_uuid()' })
     PROD_UID: string;
 
+    //Product name
     @Column({nullable: true})
     PROD_NAME: string;
 
+    //Product description
     @Column({nullable: true})
     PROD_DESC: string;
 
+    //Product kind: combo or single
     @Column({nullable: true})
     PROD_KND_CD: string;
 
-    // @ManyToMany()
-    @Column({nullable: true})
-    PROD_TYP_CD : string;
-
-    // @OneToMany()
+    // Product combo ID
     @Column({nullable: true})
     PARENT_PROD_UID: string;
 
-    @Column({nullable: true})
-    PROD_CLS_01: string;
-
-    @Column({nullable: true})
-    PROD_CLS_02: string;
-
-    @Column({nullable: true})
-    PROD_CLS_03: string;
-
+    //Product image
     @Column({nullable: true})
     IMG_PATH: string;
 
+    //Product standard price
     @Column({nullable: true})
     STD_PRC_AMT: number;
 
+    // Product sale price
     @Column({nullable: true})
     SALE_PRC_AMT: number;
-
-    // @OneToMany()
-    @Column({nullable: true})
-    OPTION: string;
 
     @Column({nullable: true})
     REG_K_ID: string;

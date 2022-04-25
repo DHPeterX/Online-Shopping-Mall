@@ -2,7 +2,7 @@ import { IBaseEntity } from '../../common/web/base/i-base.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity('TB_CL_MBR_TIER')
-export class MemberGradeEntity extends IBaseEntity {
+export class MemberTierEntity extends IBaseEntity {
   @Column({ name: 'TIR_CD', unique: true })
   gradeCd: string;
 
