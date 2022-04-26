@@ -1,67 +1,56 @@
 import { AfterInsert, AfterRemove, AfterUpdate, Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, ManyToMany } from 'typeorm';
+import { IBaseEntity } from 'src/common/web/base/i-base.entity';
 
-@Entity()
-export class Product {
+@Entity('TB_SM_PRD')
+export class Product extends IBaseEntity {
 
-    @PrimaryGeneratedColumn()
-    PROD_ID: string;
+    @PrimaryGeneratedColumn({name: 'PRD_ID'})
+    prdId: string;
 
-    @PrimaryColumn({ name: 'PROD_UID', default: () => 'gen_random_uuid()' })
-    PROD_UID: string;
+    @PrimaryColumn({name: 'PRD_UID', default: () => 'gen_random_uuid()'})
+    prdUid: string;
 
     //Product name
-    @Column({nullable: true})
-    PROD_NAME: string;
+    @Column({name: 'PRD_NAME', nullable: true})
+    prdName: string;
 
     //Product description
-    @Column({nullable: true})
-    PROD_DESC: string;
+    @Column({name: 'PRD_DESC', nullable: true})
+    prdDesc: string;
 
     //Product kind: combo or single
-    @Column({nullable: true})
-    PROD_KND_CD: string;
+    @Column({name: 'PROD_KND_CD', nullable: true})
+    prdKndcd: string;
 
     // Product combo ID
-    @Column({nullable: true})
-    PARENT_PROD_UID: string;
+    @Column({name: 'PARENT_PROD_UID', nullable: true})
+    parrentPrdUid: string;
 
     //Product image
-    @Column({nullable: true})
-    IMG_PATH: string;
+    @Column({name: 'IMG_PATH', nullable: true})
+    imgPath: string;
 
     //Product standard price
-    @Column({nullable: true})
-    STD_PRC_AMT: number;
+    @Column({name: 'STD_PRC_AMT', nullable: true})
+    stdPrcAmt: number;
 
     // Product sale price
-    @Column({nullable: true})
-    SALE_PRC_AMT: number;
-
-    @Column({nullable: true})
-    REG_K_ID: string;
-
-    @Column({nullable: true})
-    REG_DT: Date;
-
-    @Column({nullable: true})
-    UPD_K_ID: string;
-
-    @Column({nullable: true})
-    UPD_DT: Date;
+    @Column({name: 'SALE_PRC_AMT', nullable: true})
+    salePrcAmt: number;
 
     @AfterInsert()
     logInsert() {
-        console.log('Inserted Product with id', this.PROD_ID);
+        console.log('Inserted Product with id', this.prdId);
     }
 
     @AfterUpdate()
     logUpdate() {
-        console.log('Updated Product with id', this.PROD_ID);
+        console.log('Updated Product with id', this.prdId);
     }
 
     @AfterRemove()
     logRemove() {
-        console.log('Removed Product with id', this.PROD_ID);
+        console.log('Removed Product with id', this.prdId);
     }
     
 }

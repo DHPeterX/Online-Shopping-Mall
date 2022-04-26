@@ -14,8 +14,8 @@ export class ProductController {
     }
 
     @Get('/:id')
-    async findProduct(@Param('id') PROD_ID: string){
-        const Product = await this.productService.findOne(PROD_ID);
+    async findProduct(@Param('id') prdId: string){
+        const Product = await this.productService.findOne(prdId);
         if(!Product) {
             throw new NotFoundException('Product not found');
         }
@@ -29,12 +29,12 @@ export class ProductController {
     }
 
     @Delete('/:id')
-    removeProduct(@Param('id') PROD_ID: string){
-        return this.productService.remove(PROD_ID);
+    removeProduct(@Param('id') prdId: string){
+        return this.productService.remove(prdId);
     }
 
     @Patch('/:id')
-    updateProduct(@Param('id') PROD_ID: string, @Body() body: UpdateProductDto){
-        return this.productService.update(PROD_ID, body);
+    updateProduct(@Param('id') prdId: string, @Body() body: UpdateProductDto){
+        return this.productService.update(prdId, body);
     }
 }

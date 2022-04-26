@@ -14,16 +14,16 @@ export class ProductService {
         return this.repo.save(product);
     }
 
-    findOne(PROD_ID: string){
-        return this.repo.findOne({PROD_ID});
+    findOne(prdId: string){
+        return this.repo.findOne({prdId});
     }
 
     find(){
         return this.repo.find()
     }
 
-    async update(PROD_ID: string, attrs: Partial<Product> ){
-        const product = await this.findOne(PROD_ID);
+    async update(prdId: string, attrs: Partial<Product> ){
+        const product = await this.findOne(prdId);
 
         if(!product) {
             throw new NotFoundException('Product not found');            
@@ -33,8 +33,8 @@ export class ProductService {
         return this.repo.save(product);
     }
 
-    async remove(PROD_ID: string){
-        const product = await this.findOne(PROD_ID);
+    async remove(prdId: string){
+        const product = await this.findOne(prdId);
 
         if(!product) {
             throw new NotFoundException('Procduct not found');            
