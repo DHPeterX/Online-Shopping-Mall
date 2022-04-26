@@ -10,6 +10,7 @@ async function bootstrap() {
   const logger = new Logger();
   const app = await NestFactory.create(AppModule);
   app.enableCors();
+  app.setGlobalPrefix('api/v1')
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new TransformInterceptor());
   const port = process.env.PORT;
@@ -22,7 +23,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api/v1/swagger-ui', app, document);
 
   await app.listen(port);
 
