@@ -17,6 +17,10 @@ export class MemberGradeEntity extends IBaseEntity {
   })
   useYn: string;
 
-  @Column({ name: 'CACHE_YN', nullable: false, default: 'N' })
+  @Column({
+    name: 'CACHE_YN',
+    nullable: false,
+    default: SysComStatusConst.STS_NO,
+  })
   cacheYn: string;
 }

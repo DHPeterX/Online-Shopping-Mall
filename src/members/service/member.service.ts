@@ -1,28 +1,36 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Member } from '../entity/member.entity';
+import { MemberEntity } from '../entity/member.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class MemberService {
-    constructor(@InjectRepository(Member) private repo: Repository<Member>) { }
+  constructor(
+    @InjectRepository(MemberEntity) private repo: Repository<MemberEntity>,
+  ) {}
 
-    create(inParams: Member) {
-        const tgtObj = this.repo.create(inParams);
-        return this.repo.save(tgtObj);
+  // create(inParams: MemberEntity) {
+  //   const tgtObj = this.repo.create(inParams);
+  //   return this.repo.save(tgtObj);
+  // }
+
+  // update(inParams: MemberEntity) {}
+
+  // delete(inParams: MemberEntity) {}
+
+  findById(id: string): any {
+    const inParams: any = {
+
     }
 
-    update(inParams: Member) { }
+    return 
+  }
 
-    delete(inParams: Member) { }
+  // findByEmail(email: string) {}
 
-    findById(id: string) { }
+  // findByCellPhone(cellNo: string) {}
 
-    findByEmail(email: string) { }
+  // findByIdentityCard(idType: string, idValue: string) {}
 
-    findByCellPhone(cellNo: string) { }
-
-    findByIdentityCard(idType: string, idValue: string) { }
-
-    findByMemberCard(mbrCardNo: string,) { }
+  // findByMemberCard(mbrCardNo: string) {}
 }

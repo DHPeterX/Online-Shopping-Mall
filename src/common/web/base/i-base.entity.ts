@@ -1,13 +1,4 @@
-import {
-  AfterInsert,
-  AfterRemove,
-  AfterUpdate,
-  Column,
-  IsNull,
-  PrimaryColumn,
-  PrimaryGeneratedColumn,
-  Timestamp,
-} from 'typeorm';
+import { Column, PrimaryColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { IsOptional } from 'class-validator';
 
@@ -91,34 +82,4 @@ export class IBaseEntity {
     comment: 'Updated Name',
   })
   updatedName: string;
-
-  // @BeforeInsert()
-  // logInsert() {
-  //   //console.log(`Inserted Object with ID ${this.id}`);
-  // }
-  //
-  // @BeforeUpdate()
-  // logUpdate() {
-  //   console.log(`Updated Object with ID ${this.id}`);
-  // }
-  //
-  // @BeforeRemove()()
-  // logRemove() {
-  //   console.log(`Removed Object with ID ${this.id}`);
-  // }
-
-  // @AfterInsert()
-  // logInsert() {
-  //   console.log(`Inserted Object with ID ${this.id}`);
-  // }
-
-  // @AfterUpdate()
-  // logUpdate() {
-  //   console.log(`Updated Object with ID ${this.id}`);
-  // }
-
-  // @AfterRemove()
-  // logRemove() {
-  //   console.log(`Removed Object with ID ${this.id}`);
-  // }
 }

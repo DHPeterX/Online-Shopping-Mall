@@ -1,15 +1,15 @@
-export class MemberGradeDto{
+export class MemberGradeDto {
 
 }
 
-export class MemberGrateCreate{
+export class CreateMemberGradeDto {
 
 }
 
-export class MemberGradeUpdate{
+export class UpdateMemberGradeDto {
 
 }
 
-export class MemberGradeStatus{
+export class DeleteMemberGradeUpdate {
 
 }

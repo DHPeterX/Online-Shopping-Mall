@@ -1,6 +1,5 @@
 import { IBaseEntity } from '../../common/web/base/i-base.entity';
 import { Column, Entity } from 'typeorm';
-import internal from 'stream';
 import { SysComStatusConst } from 'src/common/core/const/sys-com-status.const';
 
 @Entity('TB_CL_MBR_PROMOTE_HST')
