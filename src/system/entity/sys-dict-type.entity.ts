@@ -1,7 +1,6 @@
-import { IBaseEntity } from 'src/common/web/base/i-base.entity';
-import {Column, Entity} from 'typeorm';
-import {SysComStatusConst} from "../../common/core/const/sys-com-status.const";
-import {string} from "@hapi/joi";
+import { Column, Entity } from 'typeorm';
+import { IBaseEntity } from '../../common/web/base';
+import { SysComStatusConst } from '../../common/core/const';
 
 @Entity('SYS_DICT_TYPE')
 export class SysDictTypeEntity extends IBaseEntity {

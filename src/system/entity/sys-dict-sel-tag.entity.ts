@@ -1,9 +1,10 @@
-import { SysComStatusConst } from 'src/common/core/const/sys-com-status.const';
-import { IBaseEntity } from 'src/common/web/base/i-base.entity';
 import { Column, Entity } from 'typeorm';
+import { IBaseEntity } from '../../common/web/base';
+import { SysComStatusConst } from '../../common/core/const';
 
 @Entity('SYS_DICT_SEL_TAG')
 export class SysDictSelTagEntity extends IBaseEntity {
+
   @Column({ name: 'SYS_DB_SCHEMA' })
   sysSchema: string;
 

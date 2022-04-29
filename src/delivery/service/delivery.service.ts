@@ -1,4 +1,4 @@
-import { Injectable, Param } from '@nestjs/common';
+import { Injectable, NotFoundException, Param } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Delivery } from '../entity/delivery.entity';
@@ -29,26 +29,27 @@ export class DeliveryService {
         return this.repo.findOne(dlr_id);
     }
 
+    private async findOneWithAssure(dlr_id: string) {
+        const tgtEntity = await this.findOne(dlr_id);
+        if (!tgtEntity) {
+            throw new NotFoundException('User not found')
+        }
+
+        return tgtEntity;
+    }
+
     findAll() {
         return this.repo.find();
     }
 
     async UdpateOne(dlr_id: string, attrs: Partial<Delivery>) {
-        const delivery = await this.findOne(dlr_id);
-        if (!delivery) {
-            throw new Error('User not found')
-        }
-
+        const delivery = await this.findOneWithAssure(dlr_id);
         Object.assign(delivery, attrs);
         return this.repo.save(delivery);
     }
 
     async DeleteOne(dlr_id: string) {
-        const delivery = await this.findOne(dlr_id);
-        if (!delivery) {
-            throw new Error('User not found')
-        }
-
+        const delivery = await this.findOneWithAssure(dlr_id);
         return this.repo.delete(delivery);
     }
 
