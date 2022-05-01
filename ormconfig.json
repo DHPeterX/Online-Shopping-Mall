@@ -8,6 +8,8 @@
   "subscribers": [ "src/subscriber/**/*.ts"
   ],
   "cli": {
-    "entitiesDir":"src/**/entity/**/*.ts", "migrationsDir":"src/migration", "subscribersDir":"src/subscriber"
+    "entitiesDir":"src/**/entity/**/*.entity.ts",
+    "migrationsDir":"src/migration",
+    "subscribersDir":"src/subscriber"
   }
 }

@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import {
   MemberEntity,
   MemberGradeEntity,
-  MemberPromoteHistoryEntity,
   MemberTierEntity,
 } from './entity';
 
