@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm/repository/Repository';
 import { MemberTierEntity } from '../entity/member-tier.entity';
 import { MemberRepository, MemberTierRepository } from '../repository';
+import { MemberGradeEntity } from '../entity';
 
 @Injectable()
 export class MemberTierService {
@@ -11,9 +12,16 @@ export class MemberTierService {
 
 	constructor(
 		@InjectRepository(MemberTierRepository)
-		private repo: MemberTierRepository,
+		private tgtObjRepo: MemberTierRepository,
 	) {
 	}
 
+	async findAll(): Promise<MemberTierEntity[]> {
+		return await this.tgtObjRepo.find();
+	}
+
+	async findOne(_id: string): Promise<MemberTierEntity>{
+		return await this.tgtObjRepo.findOneOrFail(_id);
+	}
 
 }

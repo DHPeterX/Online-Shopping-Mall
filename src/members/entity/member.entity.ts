@@ -1,59 +1,75 @@
 import { IBaseEntity } from '../../common/web/base/i-base.entity';
 import { Column, Entity } from 'typeorm';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 
 @Entity('TB_CL_MBR')
 export class MemberEntity extends IBaseEntity {
-	@Column({ name: 'MBR_ID', unique: true })
-	mbr_id: string;
 
-	@Column({ name: 'ALIAS_NAME' })
+	@Column({ name: 'MBR_ID', unique: true })
+	mbrId: string;
+
+	@IsOptional()
+	@Column({ name: 'ALIAS_NAME', nullable: true })
 	aliasName: string;
 
-	@Column({ name: 'FIRST_NAME' })
+	@IsOptional()
+	@Column({ name: 'FIRST_NAME', nullable: true })
 	firstName: string;
 
-	@Column({ name: 'LAST_NAME' })
+	@IsOptional()
+	@Column({ name: 'LAST_NAME', nullable: true })
 	lastName: string;
 
-	@Column({ name: 'GENDER_CD' })
+	@IsNotEmpty()
+	@Column({ name: 'GENDER_CD', nullable: true })
 	genderCd: string;
 
-	@Column({ name: 'ACCOUNT_ID' })
+	@Column({ name: 'ACCOUNT_ID', nullable: true })
 	accountId: string;
 
-	@Column({ name: 'MBR_GRD_CD' })
+	@Column({ name: 'MBR_GRD_CD', nullable: false })
 	mbrGradeCd: string;
 
-	@Column({ name: 'MBR_TIR_CD' })
+	@Column({ name: 'MBR_TIR_CD', nullable: false  })
 	mbrTierCd: string;
 
-	@Column({ name: 'STATE_NAT_CD' })
+	@IsOptional()
+	@Column({ name: 'STATE_NAT_CD', nullable: true })
 	stateCntrctCd: string;
 
-	@Column({ name: 'STATE_CITY_CD' })
+	@IsOptional()
+	@Column({ name: 'STATE_CITY_CD', nullable: true  })
 	stateCityCd: string;
 
-	@Column({ name: 'STATE_WARD_CD' })
+	@IsOptional()
+	@Column({ name: 'STATE_WARD_CD', nullable: true  })
 	stateWardCd: string;
 
-	@Column({ name: 'STATE_DETAIL' })
+	@IsOptional()
+	@Column({ name: 'STATE_DETAIL', nullable: true  })
 	stateDetail: string;
 
-	@Column({ name: 'STATE_OTHER' })
+	@IsOptional()
+	@Column({ name: 'STATE_OTHER', nullable: true })
 	stateOther: string;
 
-	@Column({ name: 'FIR_REG_SITE_CD' })
+	@IsOptional()
+	@Column({ name: 'FIR_REG_SITE_CD', nullable: true })
 	firRegSiteCd: string;
 
-	@Column({ name: 'FIR_LOGIN_DT' })
+	@IsOptional()
+	@Column({ name: 'FIR_LOGIN_DT', nullable: true })
 	firLoginDt: string;
 
-	@Column({ name: 'LST_LOGIN_DT' })
+	@IsOptional()
+	@Column({ name: 'LST_LOGIN_DT', nullable: true })
 	lstLoginDate: string;
 
-	@Column({ name: 'LST_ACCESS_TOKEN' })
+	@IsOptional()
+	@Column({ name: 'LST_ACCESS_TOKEN', nullable: true })
 	lstAccessToken: string;
 
-	@Column({ name: 'LST_ACCESS_EXP' })
+	@IsOptional()
+	@Column({ name: 'LST_ACCESS_EXP', nullable: true })
 	lstAccessTokenExp: string;
 }

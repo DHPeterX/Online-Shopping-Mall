@@ -2,14 +2,17 @@
   "logging": false,
   "entities": [
     "src/entity/index.ts",
-    "dist/**/entity/*.entity{.ts,.js}"],
-  "migrations": [ "src/migration/**/*.ts"
+    "dist/**/entity/*.entity{.ts,.js}"
   ],
-  "subscribers": [ "src/subscriber/**/*.ts"
+  "migrations": [
+    "src/migration/**/*.ts"
+  ],
+  "subscribers": [
+    "src/subscriber/**/*.ts"
   ],
   "cli": {
-    "entitiesDir":"src/**/entity/**/*.entity.ts",
-    "migrationsDir":"src/migration",
-    "subscribersDir":"src/subscriber"
+    "entitiesDir": "src/**/entity/**/*.entity.ts",
+    "migrationsDir": "src/migration",
+    "subscribersDir": "src/subscriber"
   }
 }

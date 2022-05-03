@@ -12,43 +12,44 @@ import { DeliveryModule } from './delivery/delivery.module';
 import { AreaModule } from './area/area.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      envFilePath: [`.env.stage.${process.env.NODE_ENV}`],
-      //envFilePath: [`.env.stage.dev`],
-      validationSchema: configValidationSchema,
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => {
-        const isProduction = configService.get<string>('NODE_ENV') === 'prod';
-        //const isProduction = false;
+	imports: [
+		ConfigModule.forRoot({
+			envFilePath: [`.env.stage.${process.env.NODE_ENV}`],
+			//envFilePath: [`.env.stage.dev`],
+			validationSchema: configValidationSchema,
+		}),
+		TypeOrmModule.forRootAsync({
+			imports: [ConfigModule],
+			inject: [ConfigService],
+			useFactory: async (configService: ConfigService) => {
+				const isProduction = configService.get<string>('NODE_ENV') === 'prod';
+				//const isProduction = false;
 
-        return {
-          ssl: isProduction,
-          extra: {
-            ssl: isProduction ? { rejectUnauthorized: false } : null,
-          },
-          type: 'postgres',
-          host: configService.get('DB_HOST'),
-          port: configService.get('DB_PORT'),
-          username: configService.get('DB_USERNAME'),
-          password: configService.get('DB_PASSWORD'),
-          database: configService.get('DB_DATABASE'),
-          autoLoadEntities: true,
-          synchronize: true,
-        };
-      },
-    }),
-    SystemModule,
-    AuthModule,
-    TasksModule,
-    MembersModule,
-    PromotionModule,
-    ProductModule,
-    DeliveryModule,
-    AreaModule
-  ],
+				return {
+					ssl: isProduction,
+					extra: {
+						ssl: isProduction ? { rejectUnauthorized: false } : null,
+					},
+					type: 'postgres',
+					host: configService.get('DB_HOST'),
+					port: configService.get('DB_PORT'),
+					username: configService.get('DB_USERNAME'),
+					password: configService.get('DB_PASSWORD'),
+					database: configService.get('DB_DATABASE'),
+					autoLoadEntities: true,
+					synchronize: true,
+				};
+			},
+		}),
+		SystemModule,
+		AuthModule,
+		TasksModule,
+		MembersModule,
+		PromotionModule,
+		ProductModule,
+		DeliveryModule,
+		AreaModule,
+	],
 })
-export class AppModule { }
+export class AppModule {
+}

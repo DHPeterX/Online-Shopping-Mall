@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Logger, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Logger, Param, Post, Query } from '@nestjs/common';
 import {
 	SysDictConfigCreateDto,
 	SysDictConfigDispDto,
@@ -24,8 +24,15 @@ export class SysDictConfigController {
 	}
 
 	@Get('/:id')
-	async getOne(@Param() id: string): Promise<SysDictConfigDto> {
-		return;
+	async getOne(@Param() id?: string): Promise<SysDictConfigEntity> {
+		this.logger.log(id);
+		return await this.sysDictConfigService.findOne(id);
+	}
+
+	@Post('/getByKey')
+	async getOneByConfigKey(@Query() sysConfigKey?: string): Promise<any> {
+		this.logger.log(sysConfigKey);
+		return ;
 	}
 
 	@Post()

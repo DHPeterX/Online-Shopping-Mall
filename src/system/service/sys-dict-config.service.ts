@@ -16,12 +16,17 @@ export class SysDictConfigService {
 
 	constructor(
 		@InjectRepository(SysDictConfigRepository)
-		private sysDictConfigRepo: SysDictConfigRepository) {
+		private tgtObjRepo: SysDictConfigRepository) {
 	}
 
 	async findAll(): Promise<SysDictConfigEntity[]> {
-		return await this.sysDictConfigRepo.find();
+		return await this.tgtObjRepo.find();
 	}
+
+	async findOne(_id: string): Promise<SysDictConfigEntity>{
+		return await this.tgtObjRepo.findOneOrFail(_id);
+	}
+
 
 	async createSysConfig(inParams: Partial<SysDictConfigDto>): Promise<any> {
 		return;
@@ -32,15 +37,15 @@ export class SysDictConfigService {
 	}
 
 	async updateStatus(inParams: SysDictConfigChangeStatusDto): Promise<any> {
-		return this.sysDictConfigRepo.updateStatus(inParams);
+		return this.tgtObjRepo.updateStatus(inParams);
 	}
 
 	async updateSysDisp(inParams: SysDictConfigDispDto): Promise<any> {
-		return this.sysDictConfigRepo.updateDisp(inParams);
+		return this.tgtObjRepo.updateDisp(inParams);
 	}
 
 	async updateSysDispOrder(inParams: SysDictConfigDispOrderDto): Promise<any> {
-		return await this.sysDictConfigRepo.updateDispOrder(inParams);
+		return await this.tgtObjRepo.updateDispOrder(inParams);
 	}
 
 }

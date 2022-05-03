@@ -2,6 +2,6 @@
   "singleQuote": true,
   "trailingComma": "all",
   "useTabs": true,
-  "parser":"json-stringify",
+  "parser": "json-stringify",
   "printWidth": 100
 }

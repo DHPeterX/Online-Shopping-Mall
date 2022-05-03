@@ -2,24 +2,27 @@ import { Body, Controller, Delete, Get, Logger, Param, Post, Put } from '@nestjs
 import { IBaseController } from 'src/common/web/base/i-base.controller';
 import { MemberTierService } from '../service';
 import { MemberGradeDto, MemberTierCreateDto, MemberTierUpdateDto } from '../dto';
+import { MemberGradeEntity, MemberTierEntity } from '../entity';
 
 @Controller('member-tier')
 export class MemberTierController extends IBaseController {
 	private logger = new Logger('MemberTierController', { timestamp: true });
 
-	constructor(private memberTierService: MemberTierService) {
+	constructor(
+		private memberTierService: MemberTierService)
+	{
 		super();
 	}
 
-	@Get('')
-	async findAll(): Promise<MemberGradeDto[]> {
-		//return this.memberTierService.findAll();
-		return;
+	@Get()
+	async getAll(): Promise<MemberTierEntity[]> {
+		return await this.memberTierService.findAll();
 	}
 
 	@Get('/:id')
-	async findOne(@Param() id: string): Promise<MemberGradeDto> {
-		return {};
+	async getOne(@Param() id?: string): Promise<MemberTierEntity> {
+		this.logger.log(id);
+		return await this.memberTierService.findOne(id);
 	}
 
 	@Post()
