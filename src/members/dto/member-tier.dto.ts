@@ -1,15 +1,15 @@
-export class MemberTierDto{
+export class MemberTierDto {
 
 }
 
-export class MemberTierCreateDto{
+export class MemberTierCreateDto {
 
 }
 
-export class MemberTierUpdateDto{
+export class MemberTierUpdateDto {
 
 }
 
-export class MemberTierStatusDto{
+export class MemberTierStatusDto {
 
 }

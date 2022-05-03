@@ -5,31 +5,34 @@ export class SysDictConfigDto extends SysDictConfigEntity {
 
 }
 
-export class SysDictConfigCreateDto{}
+export class SysDictConfigCreateDto {
+}
 
-export class SysDictConfigUpdateDto{}
+export class SysDictConfigUpdateDto {
+}
 
-export class SysDictConfigDeleteDto{}
+export class SysDictConfigDeleteDto {
+}
 
-export class SysDictConfigChangeStatusDto{
+export class SysDictConfigChangeStatusDto {
 
 	@IsOptional()
-	useYn?:string;
+	useYn?: string;
 
 }
 
-export class SysDictConfigDispDto{
+export class SysDictConfigDispDto {
 
 	@IsNotEmpty()
-	dispYn?:string;
+	dispYn?: string;
 
 }
 
-export class SysDictConfigDispOrderDto{
+export class SysDictConfigDispOrderDto {
 
 	@IsOptional()
-	dispYn?:string;
+	dispYn?: string;
 
 	@IsNotEmpty()
-	dispOrder:number;
+	dispOrder: number;
 }

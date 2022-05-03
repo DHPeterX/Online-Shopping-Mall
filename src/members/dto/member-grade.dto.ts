@@ -2,11 +2,11 @@ export class MemberGradeDto {
 
 }
 
-export class CreateMemberGradeDto {
+export class MemberGradeCreateDto {
 
 }
 
-export class UpdateMemberGradeDto {
+export class MemberGradeUpdateDto {
 
 }
 

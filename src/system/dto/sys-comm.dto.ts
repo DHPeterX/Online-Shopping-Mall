@@ -1,3 +1,3 @@
-export class SysCommDto{
+export class SysCommDto {
 
 }

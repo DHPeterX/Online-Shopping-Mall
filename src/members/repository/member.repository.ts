@@ -4,5 +4,7 @@ import { Logger } from '@nestjs/common';
 
 @EntityRepository(MemberEntity)
 export class MemberRepository extends Repository<MemberEntity> {
-  private logger = new Logger('MemberRepository', { timestamp: true });
+	private logger = new Logger('MemberRepository', { timestamp: true });
+
+
 }

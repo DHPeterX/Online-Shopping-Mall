@@ -12,34 +12,34 @@ import { SysDictConfigEntity } from '../entity';
 @Injectable()
 export class SysDictConfigService {
 
-	private logger = new Logger('SysDictConfigService', {timestamp: true});
+	private logger = new Logger('SysDictConfigService', { timestamp: true });
 
 	constructor(
 		@InjectRepository(SysDictConfigRepository)
-		private sysDictConfigRepo : SysDictConfigRepository) {
+		private sysDictConfigRepo: SysDictConfigRepository) {
 	}
 
-	async findAll(): Promise<SysDictConfigEntity[]>{
+	async findAll(): Promise<SysDictConfigEntity[]> {
 		return await this.sysDictConfigRepo.find();
 	}
 
-	async createSysConfig(inParams : Partial<SysDictConfigDto>): Promise<any>{
+	async createSysConfig(inParams: Partial<SysDictConfigDto>): Promise<any> {
 		return;
 	}
 
-	async updateSysConfig(inParams : Partial<SysDictConfigDto>): Promise<any>{
+	async updateSysConfig(inParams: Partial<SysDictConfigDto>): Promise<any> {
 		return;
 	}
 
-	async updateStatus(inParams: SysDictConfigChangeStatusDto):Promise<any>{
+	async updateStatus(inParams: SysDictConfigChangeStatusDto): Promise<any> {
 		return this.sysDictConfigRepo.updateStatus(inParams);
 	}
 
-	async updateSysDisp(inParams: SysDictConfigDispDto):Promise<any>{
+	async updateSysDisp(inParams: SysDictConfigDispDto): Promise<any> {
 		return this.sysDictConfigRepo.updateDisp(inParams);
 	}
 
-	async updateSysDispOrder(inParams: SysDictConfigDispOrderDto):Promise<any>{
+	async updateSysDispOrder(inParams: SysDictConfigDispOrderDto): Promise<any> {
 		return await this.sysDictConfigRepo.updateDispOrder(inParams);
 	}
 

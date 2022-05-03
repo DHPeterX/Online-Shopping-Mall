@@ -1,33 +1,20 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-import {
-  MemberEntity,
-  MemberGradeEntity,
-  MemberTierEntity,
-} from './entity';
-
-import {
-  MemberController,
-  MemberGradeController,
-  MemberTierController,
-} from './controller';
-
-import {
-  MemberService,
-  MemberGradeService,
-  MemberTierService,
-} from './service';
+import { MemberController, MemberGradeController, MemberTierController } from './controller';
+import { MemberGradeService, MemberService, MemberTierService } from './service';
+import { MemberGradeRepository, MemberRepository, MemberTierRepository } from './repository';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      MemberEntity,
-      MemberGradeEntity,
-      MemberTierEntity,
-    ]),
-  ],
-  controllers: [MemberController, MemberGradeController, MemberTierController],
-  providers: [MemberService, MemberGradeService, MemberTierService],
+	imports: [
+		TypeOrmModule.forFeature([
+			MemberRepository,
+			MemberGradeRepository,
+			MemberTierRepository,
+		]),
+	],
+	providers: [MemberService, MemberGradeService, MemberTierService],
+	controllers: [MemberController, MemberGradeController, MemberTierController],
+	exports:[]
 })
-export class MembersModule {}
+export class MembersModule {
+}

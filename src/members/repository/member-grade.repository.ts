@@ -4,5 +4,7 @@ import { MemberGradeEntity } from '../entity';
 
 @EntityRepository(MemberGradeEntity)
 export class MemberGradeRepository extends Repository<MemberGradeEntity> {
-  private logger = new Logger('MemberGradeRepository', { timestamp: true });
+
+	private logger = new Logger('MemberGradeRepository', { timestamp: true });
+
 }

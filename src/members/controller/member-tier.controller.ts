@@ -1,56 +1,45 @@
-import { string } from '@hapi/joi';
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Logger,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { Observable } from 'rxjs';
+import { Body, Controller, Delete, Get, Logger, Param, Post, Put } from '@nestjs/common';
 import { IBaseController } from 'src/common/web/base/i-base.controller';
 import { MemberTierService } from '../service';
 import { MemberGradeDto, MemberTierCreateDto, MemberTierUpdateDto } from '../dto';
 
 @Controller('member-tier')
 export class MemberTierController extends IBaseController {
-  private logger = new Logger('MemberGradeController', { timestamp: true });
+	private logger = new Logger('MemberTierController', { timestamp: true });
 
-  constructor(private memberTierService: MemberTierService) {
-    super();
-  }
+	constructor(private memberTierService: MemberTierService) {
+		super();
+	}
 
-  @Get('')
-  async findAll(): Promise<[MemberGradeDto]> {
-    //return this.memberTierService.findAll();
-    return;
-  }
+	@Get('')
+	async findAll(): Promise<MemberGradeDto[]> {
+		//return this.memberTierService.findAll();
+		return;
+	}
 
-  @Get('/:id')
-  async findOne(@Param() id: string): Promise<MemberGradeDto> {
-    return {};
-  }
+	@Get('/:id')
+	async findOne(@Param() id: string): Promise<MemberGradeDto> {
+		return {};
+	}
 
-  @Post()
-  async create(@Body() inParams: MemberTierCreateDto): Promise<void> {
-    const resultVal = {};
+	@Post()
+	async create(@Body() inParams: MemberTierCreateDto): Promise<void> {
+		const resultVal = {};
 
-    return;
-  }
+		return;
+	}
 
-  @Put('/:id')
-  async update(@Param() id: string, @Body() inParams: MemberTierUpdateDto): Promise<void> {
-    const resultVal = {};
+	@Put('/:id')
+	async update(@Param() id: string, @Body() inParams: MemberTierUpdateDto): Promise<void> {
+		const resultVal = {};
 
-    return;
-  }
+		return;
+	}
 
-  @Delete('/:id')
-  async delete(@Param() id: string): Promise<void> {
-    const resultVal = {};
+	@Delete('/:id')
+	async delete(@Param() id: string): Promise<void> {
+		const resultVal = {};
 
-    return;
-  }
+		return;
+	}
 }

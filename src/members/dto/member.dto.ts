@@ -1,19 +1,19 @@
-export class MemberDto{
+export class MemberDto {
 
 }
 
-export class MemberCreateDto{
+export class MemberCreateDto {
 
 }
 
-export class MemberBasicInfoDto{
+export class MemberBasicInfoDto {
 
 }
 
-export class MemberMasterInfoDto{
+export class MemberMasterInfoDto {
 
 }
 
-export class MemberUpdateBasicInfo{
+export class MemberUpdateBasicInfo {
 
 }

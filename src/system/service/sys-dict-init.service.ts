@@ -1,4 +1,4 @@
-import { Injectable, Logger, OnApplicationBootstrap, OnModuleInit } from '@nestjs/common';
+import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
 import { SysDictConfigService } from './sys-dict-config.service';
 import { SysDictLangService } from './sys-dict-lang.service';
 import { SysDictTypeService } from './sys-dict-type.service';
@@ -6,7 +6,7 @@ import { SysDictTypeService } from './sys-dict-type.service';
 @Injectable()
 export class SysDictInitService implements OnApplicationBootstrap {
 
-	private logger = new Logger('SysDictConfigService', {timestamp: true});
+	private logger = new Logger('SysDictConfigService', { timestamp: true });
 
 	/** Implement for Caching Service :
 	 *  Load Before Startup Full Service
@@ -15,7 +15,7 @@ export class SysDictInitService implements OnApplicationBootstrap {
 	constructor(
 		private sysDictConfigService: SysDictConfigService
 		, private sysDictLangService: SysDictLangService
-		, private sysDictTypeService: SysDictTypeService
+		, private sysDictTypeService: SysDictTypeService,
 	) {
 	}
 
@@ -30,7 +30,7 @@ export class SysDictInitService implements OnApplicationBootstrap {
 
 	onApplicationBootstrap(): any {
 
-		console.log("Init Testing...");
+		console.log('Init Testing...');
 
 	}
 }
