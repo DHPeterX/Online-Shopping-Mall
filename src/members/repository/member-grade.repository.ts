@@ -1,6 +1,6 @@
-import { Logger } from '@nestjs/common';
+import { Logger, NotFoundException } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
-import { MemberGradeEntity } from '../entity';
+import { MemberGradeEntity, MemberTierEntity } from '../entity';
 import { SysDictConfigDispDto, SysDictConfigDispOrderDto } from '../../system/dto/sys-dict-config.dto';
 import { MemberGradeDto } from '../dto';
 
@@ -8,6 +8,14 @@ import { MemberGradeDto } from '../dto';
 export class MemberGradeRepository extends Repository<MemberGradeEntity> {
 
 	private logger = new Logger('MemberGradeRepository', { timestamp: true });
+
+	async findOneWithAssured(id:string):Promise<MemberGradeEntity>{
+		const tgtObj:MemberGradeEntity = await this.findOne(id);
+		if(!tgtObj){
+			throw new NotFoundException("Data Not Found");
+		}
+		return tgtObj;
+	}
 
 	async createMemberGrade() :Promise<MemberGradeEntity> {
 		return;

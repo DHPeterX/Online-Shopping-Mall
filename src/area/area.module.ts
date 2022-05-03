@@ -11,8 +11,9 @@ import { Country } from './entity/country.entity';
 import { Ward } from './entity/ward.entity';
 
 @Module({
-  imports:[TypeOrmModule.forFeature([City,Country,Ward])], 
-  controllers: [CityController,CountryController,WardController],
-  providers: [CityService,CountryService,WardService]
+	imports: [TypeOrmModule.forFeature([City, Country, Ward])],
+	controllers: [CityController, CountryController, WardController],
+	providers: [CityService, CountryService, WardService],
 })
-export class AreaModule {}
+export class AreaModule {
+}

@@ -35,13 +35,4 @@ export class MemberService {
 		return await this.tgtObjRepo.deleteMember(id);
 	}
 
-	// delete(inParams: MemberEntity) {}
-
-	// findByEmail(email: string) {}
-
-	// findByCellPhone(cellNo: string) {}
-
-	// findByIdentityCard(idType: string, idValue: string) {}
-
-	// findByMemberCard(mbrCardNo: string) {}
 }

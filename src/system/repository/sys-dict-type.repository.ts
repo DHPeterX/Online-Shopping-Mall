@@ -1,6 +1,6 @@
-import { Logger } from '@nestjs/common';
+import { Logger, NotFoundException } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
-import { SysDictConfigEntity, SysDictTypeEntity } from '../entity';
+import { SysDictConfigEntity, SysDictSelTagEntity, SysDictTypeEntity } from '../entity';
 import {
 	SysDictConfigCreateDto,
 	SysDictConfigDeleteDto,
@@ -12,6 +12,14 @@ import {
 export class SysDictTypeRepository extends Repository<SysDictTypeEntity> {
 
 	private logger = new Logger('SysDictDataRepository', { timestamp: true });
+
+	async findOneWithAssured(id:string):Promise<SysDictTypeEntity>{
+		const tgtObj:SysDictTypeEntity = await this.findOne(id);
+		if(!tgtObj){
+			throw new NotFoundException("Data Not Found");
+		}
+		return tgtObj;
+	}
 
 	async createSysDictType(inParams: Partial<SysDictConfigCreateDto>): Promise<SysDictConfigEntity> {
 		return;
