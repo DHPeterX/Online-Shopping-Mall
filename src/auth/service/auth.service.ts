@@ -8,32 +8,33 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
-  private logger = new Logger('AuthService', { timestamp: true });
+	private logger = new Logger('AuthService', { timestamp: true });
 
-  constructor(
-    @InjectRepository(UsersRepository)
-    private userRepo: UsersRepository,
-    private jwtService: JwtService,
-  ) {}
+	constructor(
+		@InjectRepository(UsersRepository)
+		private userRepo: UsersRepository,
+		private jwtService: JwtService,
+	) {
+	}
 
-  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
-    return this.userRepo.createUser(authCredentialsDto);
-  }
+	async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+		return this.userRepo.createUser(authCredentialsDto);
+	}
 
-  async signIn(
-    authCredentialsDto: AuthCredentialsDto,
-  ): Promise<{ accessToken: string }> {
-    const { username, password } = authCredentialsDto;
-    const user = await this.userRepo.findOne({ username });
+	async signIn(
+		authCredentialsDto: AuthCredentialsDto,
+	): Promise<{ accessToken: string }> {
+		const { username, password } = authCredentialsDto;
+		const user = await this.userRepo.findOne({ username });
 
-    this.logger.log(user.userStsCd);
+		this.logger.log(user.userStsCd);
 
-    if (user && (await bcrypt.compare(password, user.password))) {
-      const payload: JwtPayload = { username };
-      const accessToken: string = await this.jwtService.sign(payload);
-      return { accessToken };
-    } else {
-      throw new UnauthorizedException('Please check your login credentials');
-    }
-  }
+		if (user && (await bcrypt.compare(password, user.password))) {
+			const payload: JwtPayload = { username };
+			const accessToken: string = await this.jwtService.sign(payload);
+			return { accessToken };
+		} else {
+			throw new UnauthorizedException('Please check your login credentials');
+		}
+	}
 }

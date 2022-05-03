@@ -1,22 +1,22 @@
-import {HttpStatus} from '@nestjs/common';
-import {Observable} from 'rxjs';
+import { HttpStatus } from '@nestjs/common';
+import { Observable } from 'rxjs';
 
 export class IResult {
 
-  serviceMsgCode: string;
+	serviceMsgCode: string;
 
-  serviceMsg: string;
+	serviceMsg: string;
 
-  errorMsgCode: string;
+	errorMsgCode: string;
 
-  errorMsg: string;
+	errorMsg: string;
 
-  status: HttpStatus;
+	status: HttpStatus;
 
-  data: Observable<any>;
+	data: Observable<any>;
 
-  success(): Promise<IResult> {
-    return
-  }
+	success(): Promise<IResult> {
+		return;
+	}
 
 }
