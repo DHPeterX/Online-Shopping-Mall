@@ -1,9 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { MemberRepository } from '../repository';
 import { InjectRepository } from '@nestjs/typeorm';
-import { SysDictConfigEntity } from '../../system/entity';
 import { MemberEntity } from '../entity';
-import { MemberCreateDto, MemberDto } from '../dto';
+import { MemberCreateDto, MemberDto, MemberUpdateDto } from '../dto';
 
 @Injectable()
 export class MemberService {
@@ -21,19 +20,20 @@ export class MemberService {
 	}
 
 	async findOne(_id: string): Promise<MemberEntity>{
-		return await this.tgtObjRepo.findOneOrFail(_id);
+		return await this.tgtObjRepo.findOneWithAssured(_id);
 	}
 
 	async createMember(inParams: MemberCreateDto):Promise<MemberEntity>{
 		return await this.tgtObjRepo.createMember(inParams);
 	}
 
-	// create(inParams: MemberEntity) {
-	//   const tgtObj = this.repo.create(inParams);
-	//   return this.repo.save(tgtObj);
-	// }
+	async updateMember(inParams: MemberUpdateDto):Promise<MemberEntity>{
+		return await this.tgtObjRepo.updateMember(inParams);
+	}
 
-	// update(inParams: MemberEntity) {}
+	async deleteMember(id:string):Promise<MemberEntity>{
+		return await this.tgtObjRepo.deleteMember(id);
+	}
 
 	// delete(inParams: MemberEntity) {}
 

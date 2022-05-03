@@ -9,7 +9,7 @@ import {
 } from '../../system/dto/sys-dict-config.dto';
 import { MemberEntity } from '../entity';
 import { Observable } from 'rxjs';
-import { MemberCreateDto, MemberDto } from '../dto';
+import { MemberCreateDto, MemberDto, MemberUpdateDto } from '../dto';
 
 @Controller('member')
 export class MemberController extends IBaseController {
@@ -29,34 +29,21 @@ export class MemberController extends IBaseController {
 
 	@Get('/:id')
 	async getOne(@Param() id?: string): Promise<MemberEntity> {
-		this.logger.log(id);
 		return await this.memberService.findOne(id);
 	}
 
 	@Post()
-	create(@Body() inParams: MemberCreateDto): Promise<MemberEntity> {
-		return this.memberService.createMember(inParams);
+	async create(@Body() inParams: MemberCreateDto): Promise<MemberEntity> {
+		return await this.memberService.createMember(inParams);
 	}
 
 	@Post('/:id')
-	async update(@Param() id: string, @Body() inParams: MemberDto): Promise<MemberEntity> {
-		return;
-	}
-
-	@Post('/:id/updateDisp')
-	async updateDisp(@Param() id: string, @Body() inParams: MemberDto): Promise<MemberEntity> {
-		this.logger.log({ id, inParams });
-		return;
-	}
-
-	@Post('/:id/updateDispOrd')
-	async updateDispOrd(@Param() id: string, @Body() inParams: MemberDto): Promise<MemberEntity> {
-		this.logger.log({ id, inParams });
-		return ;
+	async update(@Param() id: string, @Body() inParams: MemberUpdateDto): Promise<MemberEntity> {
+		return await this.memberService.updateMember(inParams);
 	}
 
 	@Delete('/:id')
 	async delete(@Param() id: string): Promise<void> {
-		this.logger.log({ id });
+		await this.memberService.deleteMember(id);
 	}
 }

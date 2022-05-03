@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsPhoneNumber } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsPhoneNumber } from 'class-validator';
 
 export class MemberDto {
 
@@ -25,6 +25,13 @@ export class MemberMasterInfoDto {
 
 }
 
-export class MemberUpdateBasicInfo {
+export class MemberUpdateDto {
+	@IsNotEmpty()
+	id:string;
 
+	@IsOptional()
+	genderCd?:string;
+
+	@IsOptional()
+	remark?:string;
 }
