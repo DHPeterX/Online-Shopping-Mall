@@ -28,9 +28,21 @@ import {
     SysDictTypeRepository,
 } from './repository';
 
+/**
+ * System Modules:
+ * - Default Structure: Controller > Service > Repository [Entity] > DB
+ * - Func Feature List:
+ *      -> System Config:
+ *      -> System Dict. Type & Data     (Selection Tags)
+ *      -> System Dict. Table           (Selection Tags)
+ *      -> System Dict. Language        (Multiple Language (Export to Json & Reload))
+ *      -> System Logging Service:
+ *              -> Login Log
+ *              -> Operation Log
+ *     -> System Tasks
+ * */
 @Module({
     imports: [
-      //TypeOrmModule.forFeature([SysDictConfigEntity, SysDictTypeEntity, SysDictDataEntity, SysDictLangEntity, SysDictSelTagEntity, SysDictConfigRepository])
         TypeOrmModule.forFeature([SysDictConfigRepository, SysDictTypeRepository, SysDictDataRepository, SysDictLangRepository, SysDictSelTagRepository])
     ],
     controllers:[SysDictConfigController, SysDictTypeController, SysDictDataController, SysDictLangController ],

@@ -19,12 +19,15 @@ export class SysDictConfigService {
 		private sysDictConfigRepo : SysDictConfigRepository) {
 	}
 
+	async findAll(): Promise<SysDictConfigEntity[]>{
+		return await this.sysDictConfigRepo.find();
+	}
+
 	async createSysConfig(inParams : Partial<SysDictConfigDto>): Promise<any>{
-		//return this.sysDictConfigRepo.insert(inParams);
+		return;
 	}
 
 	async updateSysConfig(inParams : Partial<SysDictConfigDto>): Promise<any>{
-		//return this.sysDictConfigRepo.update(inParams);
 		return;
 	}
 

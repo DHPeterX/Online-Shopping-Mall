@@ -9,18 +9,22 @@ export class SysDictConfigCreateDto{}
 
 export class SysDictConfigUpdateDto{}
 
+export class SysDictConfigDeleteDto{}
+
 export class SysDictConfigChangeStatusDto{
 
 	@IsOptional()
 	useYn?:string;
 
 }
+
 export class SysDictConfigDispDto{
 
 	@IsNotEmpty()
 	dispYn?:string;
 
 }
+
 export class SysDictConfigDispOrderDto{
 
 	@IsOptional()

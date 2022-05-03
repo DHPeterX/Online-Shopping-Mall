@@ -1,6 +1,12 @@
 import { Body, Controller, Delete, Get, Logger, Param, Post, Put } from '@nestjs/common';
-import { SysDictConfigDispDto, SysDictConfigDispOrderDto, SysDictConfigDto } from '../dto/sys-dict-config.dto';
+import {
+    SysDictConfigCreateDto,
+    SysDictConfigDispDto,
+    SysDictConfigDispOrderDto,
+    SysDictConfigDto,
+} from '../dto/sys-dict-config.dto';
 import { SysDictConfigService } from '../service';
+import { SysDictConfigEntity } from '../entity';
 
 @Controller('/sys-config')
 export class SysDictConfigController {
@@ -13,8 +19,8 @@ export class SysDictConfigController {
     }
 
     @Get()
-    async getAll(): Promise<SysDictConfigDto[]>{
-        return ;
+    async getAll(): Promise<SysDictConfigEntity[]>{
+        return await this.sysDictConfigService.findAll();
     }
 
     @Get('/:id')
@@ -23,7 +29,7 @@ export class SysDictConfigController {
     }
 
     @Post()
-    async create(@Body() inParams: SysDictConfigDto):Promise<void>{
+    async create(@Body() inParams: SysDictConfigCreateDto):Promise<SysDictConfigDto>{
         return;
     }
 

@@ -10,15 +10,17 @@ export class IBaseEntity {
   @Column({ name: 'NAME', nullable: true, comment: 'Name' })
   name: string;
 
-  // @ts-ignore
+  @IsOptional()
   @Column({ name: 'REMARK', nullable: true, comment: 'Remark' })
   remark: string;
 
   @Exclude()
+  @IsOptional()
   @Column({ name: 'REMARK_IT', nullable: true, comment: 'Remark (IT)' })
   remarkIt: string;
 
   @Exclude()
+  @IsOptional()
   @Column({
     name: 'DEL_FLAG',
     default: 'N',
@@ -26,6 +28,7 @@ export class IBaseEntity {
     comment: 'Del Flag',
   })
   @Exclude()
+  @IsOptional()
   @Column({
     name: 'SYSDATE',
     type: 'timestamp',
@@ -35,6 +38,7 @@ export class IBaseEntity {
   })
   sysdate: Date;
 
+  @IsOptional()
   @Column({
     name: 'CREATED_AT',
     type: 'date',
