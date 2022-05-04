@@ -1,6 +1,6 @@
-import { Controller, Get, HttpStatus } from '@nestjs/common';
-import { ControllerException } from '../../common/core/exceptions';
+import { Controller, Get } from '@nestjs/common';
 import { IBaseController } from '../../common/web/base';
+import { CommonUtils } from '../../common/core/utils';
 
 @Controller('/sys-health')
 export class SysHealthController extends IBaseController {
@@ -11,7 +11,13 @@ export class SysHealthController extends IBaseController {
 
 	@Get('/alive')
 	async testAlive(): Promise<any>{
-		this.throwMessage("Fucking Aws");
+		this.throwErrorMessage("");
 	}
+
+	@Get('/testFormat')
+	async testFormat(): Promise<any>{
+		console.log(CommonUtils.fmtToBoolean(""));
+	}
+
 }
 

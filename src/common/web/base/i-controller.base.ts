@@ -1,9 +1,10 @@
 import { ControllerException } from '../../core/exceptions';
+import { HttpStatus } from '@nestjs/common';
 
 export class IBaseController extends ControllerException {
 
-	throwMessage(msgServiceError?: string) : Promise<void> {
-		throw new ControllerException(msgServiceError);
+	throwErrorMessage(msgServiceError?: string) : Promise<void> {
+		throw new ControllerException(msgServiceError, HttpStatus.BAD_REQUEST);
 	}
 
 }

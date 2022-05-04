@@ -8,7 +8,6 @@ import {
 	SysDictConfigDispOrderDto,
 	SysDictConfigUpdateDto,
 } from '../dto/sys-dict-config.dto';
-import { MemberGradeEntity } from '../../members/entity';
 
 @EntityRepository(SysDictConfigEntity)
 export class SysDictConfigRepository extends Repository<SysDictConfigEntity> {

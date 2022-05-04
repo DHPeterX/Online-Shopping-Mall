@@ -47,6 +47,7 @@
     "tslib": "1.11.2",
     "typeorm": "0.2.45",
     "uuid": "^8.3.2",
+    "validator": "^13.7.0",
     "win-node-env": "0.6.1"
   },
   "devDependencies": {

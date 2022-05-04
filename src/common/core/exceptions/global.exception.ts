@@ -5,7 +5,7 @@ export class GlobalException extends HttpException {
 		console.log(msgError);
 		super(
 			!(msgError == "" || msgError == null || msgError == undefined) ? msgError :  "Bad Request",
-			(status == HttpStatus.OK) ? HttpStatus.OK : HttpStatus.BAD_REQUEST
+			(status == HttpStatus.BAD_REQUEST) ? HttpStatus.BAD_REQUEST : status
 		);
 	}
 }

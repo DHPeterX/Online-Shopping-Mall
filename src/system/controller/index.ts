@@ -5,3 +5,5 @@ export * from './sys-dict-comm.controller';
 export * from './sys-dict-sel-tag.controller';
 export * from './sys-dict-lang.controller';
 export * from './sys-health.controller';
+export * from './sys-log-oper.controller';
+export * from './sys-log-login.controller';
