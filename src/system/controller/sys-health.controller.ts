@@ -1,10 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Logger } from '@nestjs/common';
 import { IBaseController } from '../../common/web/base';
 import { CommonUtils } from '../../common/core/utils';
 import { BusinessException, ControllerException, ServiceException } from '../../common/core/exceptions';
 
 @Controller('/sys-health')
 export class SysHealthController extends IBaseController {
+
+	private logger = new Logger('SysHealthController', { timestamp: true });
 
 	constructor() {
 		super();

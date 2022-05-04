@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Logger, Param, Post } from '@nestjs/comm
 import { SysDictDataDto } from '../dto/sys-dict-data.dto';
 import { IBaseController } from '../../common/web/base';
 
-
 @Controller('/sys-dict/data')
 export class SysDictDataController extends IBaseController {
 

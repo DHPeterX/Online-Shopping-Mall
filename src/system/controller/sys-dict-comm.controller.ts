@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Logger, Param } from '@nestjs/common';
-import { SysDictSelTagDto } from '../dto/sys-dict-sel-tag.dto';
+import { SelTagDto, SysDictSelTagDto } from '../dto/sys-dict-sel-tag.dto';
 import { SysDictSelTagService, SysDictTypeService } from '../service';
 import { IBaseController } from '../../common/web/base';
 
@@ -26,13 +26,15 @@ export class SysDictCommController extends IBaseController {
 	}
 
 	@Get('/dictTags')
-	async fetchDictSelTag() {
+	async fetchDictSelTag(@Body() inParams: SysDictSelTagDto) : Promise<SelTagDto[]> {
 		// TODO: sysTabTagService >> Fetch From Caching Service
+		return ;
 	}
 
 	@Get('/tablTags')
-	async fetchTableSelTag(@Body() inParams: SysDictSelTagDto): Promise<any>{
+	async fetchTableSelTag(@Body() inParams: SysDictSelTagDto): Promise<SelTagDto[]> {
 		// TODO: sysTabTagService >> Fetch From Caching Service
+		return ;
 	}
 
 }

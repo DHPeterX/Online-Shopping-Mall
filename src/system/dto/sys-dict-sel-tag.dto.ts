@@ -6,10 +6,13 @@ export class SysDictSelTagDto {
 	dictTable: string;
 
 	@IsNotEmpty()
-	dictSelKey: string;
+	dictSelVal: string;
 
 	@IsNotEmpty()
 	dictSelLabel: string;
+
+	@IsNotEmpty()
+	isDefault: string;
 
 	@IsOptional()
 	dictSelHint?: string;
@@ -28,4 +31,17 @@ export class SysDictSelTagDto {
 
 	@IsOptional()
 	isAsc?: string;
+}
+
+export class SelTagDto {
+
+	@IsNotEmpty()
+	dictSelVal: string;
+
+	@IsNotEmpty()
+	dictSelLabel: string;
+
+	@IsNotEmpty()
+	isDefault: string;
+
 }
