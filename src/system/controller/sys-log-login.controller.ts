@@ -6,7 +6,9 @@ export class SysLogLoginController extends IBaseController {
 
 	private logger = new Logger('SysLogLoginController', { timestamp: true });
 
-	constructor(private sysLogLoginService: SysLogLoginService) {
+	constructor(
+		private sysLogLoginService: SysLogLoginService
+	) {
 		super();
 	}
 

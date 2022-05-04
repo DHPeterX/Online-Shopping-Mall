@@ -10,7 +10,7 @@ import { SysDictConfigEntity } from '../entity';
 import { IBaseController } from '../../common/web/base';
 
 @Controller('/sys-config')
-export class SysDictConfigController extends IBaseController{
+export class SysDictConfigController extends IBaseController {
 
 	private logger = new Logger('SysDictConfigController', { timestamp: true });
 
@@ -34,7 +34,7 @@ export class SysDictConfigController extends IBaseController{
 	@Post('/getByKey')
 	async getOneByConfigKey(@Query() sysConfigKey?: string): Promise<any> {
 		this.logger.log(sysConfigKey);
-		return ;
+		return;
 	}
 
 	@Post()

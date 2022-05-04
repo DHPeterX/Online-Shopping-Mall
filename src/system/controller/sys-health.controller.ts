@@ -1,6 +1,6 @@
 import { Controller, Get, Logger } from '@nestjs/common';
 import { IBaseController } from '../../common/web/base';
-import { CommonUtils } from '../../common/core/utils';
+import { CommonUtils, SecurityUtils } from '../../common/core/utils';
 import { BusinessException, ControllerException, ServiceException } from '../../common/core/exceptions';
 
 @Controller('/sys-health')
@@ -19,7 +19,7 @@ export class SysHealthController extends IBaseController {
 
 	@Get('/testFormat')
 	async testFormat(): Promise<any>{
-		console.log(CommonUtils.fmtToBoolean(""));
+		console.log(CommonUtils.fmtToBoolean("t"));
 	}
 
 	@Get('/testControllerException')
@@ -30,6 +30,11 @@ export class SysHealthController extends IBaseController {
 	@Get('/testServiceException')
 	async testServiceException(): Promise<any>{
 		throw new ServiceException("ServiceException KAKAKA");
+	}
+
+	@Get("/testUtils")
+	async testUtils(): Promise<string>{
+		return SecurityUtils.genSalt();
 	}
 }
 

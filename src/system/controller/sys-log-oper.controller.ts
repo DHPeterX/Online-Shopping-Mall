@@ -6,7 +6,9 @@ export class SysLogOperController extends IBaseController {
 
 	private logger = new Logger('SysLogOperController', { timestamp: true });
 
-	constructor(private sysLogOperService: SysLogOperService) {
+	constructor(
+		private sysLogOperService: SysLogOperService
+	) {
 		super();
 	}
 }

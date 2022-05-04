@@ -1,64 +1,66 @@
 import * as bcrypt from 'bcrypt';
+import { UtilsException } from '../exceptions';
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 export class SecurityUtils {
 
-	async isValidPassword(password: string): Promise<boolean> {
+	public static isValidPassword(password: string): boolean {
 		return true;
 	}
 
-	async isValidToken(token: string): Promise<boolean>  {
+	public static isValidToken(token: string): boolean {
 		return true;
 	}
 
-	async doEncryptPassword(password: string): Promise<String> {
+	public static doEncryptPassword(password: string): string {
 		return "";
 	}
 
-	async doDecyptPassword(password: string): Promise<string>  {
+	public static doDecyptPassword(password: string): string  {
 		return '';
 	}
 
-	async getUserName(id: string): Promise<string>  {
+	public static getUserName(id: string): string  {
 		return '';
 	}
 
-	async getUserCompId(id: string): Promise<string>  {
+	public static getUserCompId(id: string): string  {
 		return '';
 	}
 
-	async getUserCompName(id: string): Promise<string>  {
+	public static getUserCompName(id: string): string  {
 		return '';
 	}
 
-	async getUserDeptId(id: string): Promise<string>  {
+	public static getUserDeptId(id: string): string  {
 		return '';
 	}
 
-	async getUserDeptName(id: string): Promise<string>  {
+	public static getUserDeptName(id: string): string  {
 		return '';
 	}
 
-	async getUserDeptCostId(id: string): Promise<string>  {
+	public static getUserDeptCostId(id: string): string  {
 		return '';
 	}
 
-	async getUserPostCd(id: string): Promise<string>  {
+	public static getUserPostCd(id: string): string  {
 		return '';
 	}
 
-	async getUserPostName(id: string): Promise<string>  {
+	public static getUserPostName(id: string): string  {
 		return '';
 	}
 
-	async isAdminUser(): Promise<boolean> {
+	public static isAdminUser(): boolean {
 		return true;
 	}
 
-	async isNormalUser(): Promise<boolean> {
+	public static isNormalUser(): boolean {
 		return true;
 	}
 
-	async genSalt(): Promise<string> {
-		return await bcrypt.genSalt();
+	public static genSalt(): string {
+		return bcrypt.genSalt();
 	}
 }

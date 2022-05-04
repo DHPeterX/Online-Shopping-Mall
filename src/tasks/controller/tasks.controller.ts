@@ -11,6 +11,7 @@ import { Task } from '../entity/task.entity';
 @Controller('tasks')
 @UseGuards(AuthGuard())
 export class TasksController {
+
 	private logger = new Logger('TasksController', { timestamp: true });
 
 	constructor(private tasksService: TasksService) {
@@ -61,4 +62,5 @@ export class TasksController {
 		const { status } = updateTaskStatusDto;
 		return this.tasksService.updateTaskStatus(id, status, user);
 	}
+
 }
