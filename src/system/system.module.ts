@@ -1,6 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SysDictConfigController, SysDictDataController, SysDictTypeController } from './controller';
+import {
+	SysDictCommController,
+	SysDictConfigController,
+	SysDictDataController,
+	SysDictSelTagController,
+	SysDictTypeController,
+} from './controller';
 import { SysDictLangController } from './controller/sys-dict-lang.controller';
 import {
 	SysDictConfigService,
@@ -16,6 +22,7 @@ import {
 	SysDictSelTagRepository,
 	SysDictTypeRepository,
 } from './repository';
+import { SysHealthController } from './controller/sys-health.controller';
 
 /**
  * System Modules:
@@ -34,7 +41,7 @@ import {
 	imports: [
 		TypeOrmModule.forFeature([SysDictConfigRepository, SysDictTypeRepository, SysDictDataRepository, SysDictLangRepository, SysDictSelTagRepository]),
 	],
-	controllers: [SysDictConfigController, SysDictTypeController, SysDictDataController, SysDictLangController],
+	controllers: [SysHealthController, SysDictConfigController, SysDictTypeController, SysDictDataController, SysDictLangController, SysDictSelTagController ,SysDictCommController],
 	providers: [SysDictConfigService, SysDictTypeService, SysDictDataService, SysDictLangService, SysDictSelTagService],
 	exports: [],
 })

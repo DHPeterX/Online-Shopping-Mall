@@ -1,3 +1,3 @@
-export * from './i-base.controller';
-export * from './i-base.entity';
-export * from './i-base.result';
+export * from './i-controller.base';
+export * from './i-entity.base';
+export * from './i-result.base';

@@ -7,15 +7,17 @@ import {
 } from '../dto/sys-dict-config.dto';
 import { SysDictConfigService } from '../service';
 import { SysDictConfigEntity } from '../entity';
+import { IBaseController } from '../../common/web/base';
 
 @Controller('/sys-config')
-export class SysDictConfigController {
+export class SysDictConfigController extends IBaseController{
 
 	private logger = new Logger('SysDictConfigController', { timestamp: true });
 
 	constructor(
 		private sysDictConfigService: SysDictConfigService,
 	) {
+		super();
 	}
 
 	@Get()

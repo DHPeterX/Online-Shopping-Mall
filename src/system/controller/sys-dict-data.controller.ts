@@ -1,11 +1,16 @@
 import { Body, Controller, Delete, Get, Logger, Param, Post } from '@nestjs/common';
 import { SysDictDataDto } from '../dto/sys-dict-data.dto';
+import { IBaseController } from '../../common/web/base';
 
 
 @Controller('/sys-dict/data')
-export class SysDictDataController {
+export class SysDictDataController extends IBaseController {
 
 	private logger = new Logger('SysDictDataController', { timestamp: true });
+
+	constructor() {
+		super();
+	}
 
 	@Get()
 	async getAll(): Promise<SysDictDataDto[]> {

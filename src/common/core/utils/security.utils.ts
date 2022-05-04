@@ -2,63 +2,63 @@ import * as bcrypt from 'bcrypt';
 
 export class SecurityUtils {
 
-	isValidPassword(password: string): Boolean {
+	async isValidPassword(password: string): Promise<boolean> {
 		return true;
 	}
 
-	isValidToken(token: string): Boolean {
+	async isValidToken(token: string): Promise<boolean>  {
 		return true;
 	}
 
-	doEncryptPassword(password: string): String {
+	async doEncryptPassword(password: string): Promise<String> {
+		return "";
+	}
+
+	async doDecyptPassword(password: string): Promise<string>  {
 		return '';
 	}
 
-	doDecyptPassword(password: string): String {
+	async getUserName(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserName(id: string): String {
+	async getUserCompId(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserCompId(id: string): String {
+	async getUserCompName(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserCompName(id: string): String {
+	async getUserDeptId(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserDeptId(id: string): String {
+	async getUserDeptName(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserDeptName(id: string): String {
+	async getUserDeptCostId(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserDeptCostId(id: string): String {
+	async getUserPostCd(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserPostCd(id: string): String {
+	async getUserPostName(id: string): Promise<string>  {
 		return '';
 	}
 
-	getUserPostName(id: string): String {
-		return '';
-	}
-
-	isAdminUser(): Boolean {
+	async isAdminUser(): Promise<boolean> {
 		return true;
 	}
 
-	isNormalUser(): Boolean {
+	async isNormalUser(): Promise<boolean> {
 		return true;
 	}
 
-	genSalt(): Promise<string> {
-		return bcrypt.genSalt();
+	async genSalt(): Promise<string> {
+		return await bcrypt.genSalt();
 	}
 }

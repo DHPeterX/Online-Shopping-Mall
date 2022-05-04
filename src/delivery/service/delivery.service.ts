@@ -1,57 +1,57 @@
-import { Injectable, NotFoundException, Param } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Delivery } from '../entity/delivery.entity';
-import { stringify } from 'querystring';
 
 @Injectable()
 export class DeliveryService {
-    constructor(@InjectRepository(Delivery) private repo: Repository<Delivery>) { }
+	constructor(@InjectRepository(Delivery) private repo: Repository<Delivery>) {
+	}
 
-    create(delivery: Partial<Delivery>) {
+	create(delivery: Partial<Delivery>) {
 
-        var ts = Date.now();
-        var concattime = new Date(ts);
-        var concatregex = delivery.state_cntry_cd + delivery.state_city_cd + delivery.state_ward_cd;
-        var concatcount = this.findAll().finally.length;
-        var generatedID = concattime.getFullYear() + concattime.getMonth() + concattime.getDay() + concatregex + concatcount;
+		var ts = Date.now();
+		var concattime = new Date(ts);
+		var concatregex = delivery.state_cntry_cd + delivery.state_city_cd + delivery.state_ward_cd;
+		var concatcount = this.findAll().finally.length;
+		var generatedID = concattime.getFullYear() + concattime.getMonth() + concattime.getDay() + concatregex + concatcount;
 
-        delivery.createdAt = concattime.toLocaleDateString().toString() + " " + concattime.toLocaleTimeString();
-        delivery.createdBy = 'SYSTEM';
-        delivery.updatedBy = 'SYSTEM';
-        delivery.updatedAt = concattime.toLocaleDateString().toString() + " " + concattime.toLocaleTimeString();
+		delivery.createdAt = concattime.toLocaleDateString().toString() + ' ' + concattime.toLocaleTimeString();
+		delivery.createdBy = 'SYSTEM';
+		delivery.updatedBy = 'SYSTEM';
+		delivery.updatedAt = concattime.toLocaleDateString().toString() + ' ' + concattime.toLocaleTimeString();
 
-        const data = this.repo.create(delivery);
-        return this.repo.save(data);
-    }
+		const data = this.repo.create(delivery);
+		return this.repo.save(data);
+	}
 
-    findOne(dlr_id: string) {
-        return this.repo.findOne(dlr_id);
-    }
+	findOne(dlr_id: string) {
+		return this.repo.findOne(dlr_id);
+	}
 
-    private async findOneWithAssure(dlr_id: string) {
-        const tgtEntity = await this.findOne(dlr_id);
-        if (!tgtEntity) {
-            throw new NotFoundException('User not found')
-        }
+	findAll() {
+		return this.repo.find();
+	}
 
-        return tgtEntity;
-    }
+	async UdpateOne(dlr_id: string, attrs: Partial<Delivery>) {
+		const delivery = await this.findOneWithAssure(dlr_id);
+		Object.assign(delivery, attrs);
+		return this.repo.save(delivery);
+	}
 
-    findAll() {
-        return this.repo.find();
-    }
+	async DeleteOne(dlr_id: string) {
+		const delivery = await this.findOneWithAssure(dlr_id);
+		return this.repo.delete(delivery);
+	}
 
-    async UdpateOne(dlr_id: string, attrs: Partial<Delivery>) {
-        const delivery = await this.findOneWithAssure(dlr_id);
-        Object.assign(delivery, attrs);
-        return this.repo.save(delivery);
-    }
+	private async findOneWithAssure(dlr_id: string) {
+		const tgtEntity = await this.findOne(dlr_id);
+		if (!tgtEntity) {
+			throw new NotFoundException('User not found');
+		}
 
-    async DeleteOne(dlr_id: string) {
-        const delivery = await this.findOneWithAssure(dlr_id);
-        return this.repo.delete(delivery);
-    }
+		return tgtEntity;
+	}
 
 
 }

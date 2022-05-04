@@ -1,36 +1,36 @@
-import { IsDate, IsString, IsOptional } from "class-validator";
+import { IsOptional, IsString } from 'class-validator';
 
 export class UpdateProductDto {
-    @IsString()
-    @IsOptional()
-    prdId: string;
+	@IsString()
+	@IsOptional()
+	prdId: string;
 
-    @IsString()
-    @IsOptional()
-    prdName: string;
+	@IsString()
+	@IsOptional()
+	prdName: string;
 
-    @IsString()
-    @IsOptional()
-    prdDesc: string;
+	@IsString()
+	@IsOptional()
+	prdDesc: string;
 
-    @IsString()
-    @IsOptional()
-    prdKndcd: string;
+	@IsString()
+	@IsOptional()
+	prdKndcd: string;
 
-    @IsString()
-    @IsOptional()
-    parrentPrdUid: string;
+	@IsString()
+	@IsOptional()
+	parrentPrdUid: string;
 
-    @IsString()
-    @IsOptional()
-    imgPath: string;
+	@IsString()
+	@IsOptional()
+	imgPath: string;
 
-    @IsString()
-    @IsOptional()
-    stdPrcAmt: number;
+	@IsString()
+	@IsOptional()
+	stdPrcAmt: number;
 
-    @IsString()
-    @IsOptional()
-    salePrcAmt: number;
+	@IsString()
+	@IsOptional()
+	salePrcAmt: number;
 
 }

@@ -1,4 +1,3 @@
-import { GlobalException } from './global.exception';
 import { RepositoryException } from './repository.exception';
 
 export class ServiceException extends RepositoryException{

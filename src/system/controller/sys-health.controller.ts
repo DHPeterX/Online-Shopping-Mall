@@ -1,12 +1,17 @@
 import { Controller, Get, HttpStatus } from '@nestjs/common';
 import { ControllerException } from '../../common/core/exceptions';
+import { IBaseController } from '../../common/web/base';
 
 @Controller('/sys-health')
-export class SysHealthController {
+export class SysHealthController extends IBaseController {
+
+	constructor() {
+		super();
+	}
 
 	@Get('/alive')
 	async testAlive(): Promise<any>{
-		throw new ControllerException("System Running...", HttpStatus.OK);
+		this.throwMessage("Fucking Aws");
 	}
 }
 

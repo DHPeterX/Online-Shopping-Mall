@@ -1,44 +1,39 @@
-import { AfterRemove ,AfterInsert, Column, Entity, PrimaryGeneratedColumn, AfterUpdate } from 'typeorm';
-import { IBaseEntity } from '../../common/web/base/i-base.entity';
+import { AfterInsert, AfterRemove, AfterUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IBaseEntity } from '../../common/web/base/i-entity.base';
 
 
 @Entity()
-export class City extends IBaseEntity{
-  @PrimaryGeneratedColumn()
-  state_city_cd: string;
+export class City extends IBaseEntity {
+	@PrimaryGeneratedColumn()
+	state_city_cd: string;
 
-  @Column()
-  state_cntry_cd: string;
+	@Column()
+	state_cntry_cd: string;
 
-  @Column()
-  state_city_nm: string;
-  
-  
-  
-  
-  constructor(partial: Partial<City>) {
-    super()
-    Object.assign(this, partial)
-  }
+	@Column()
+	state_city_nm: string;
 
 
-  @AfterInsert()
-  loginsert()
-  {
-    console.log('inserted with ID' ,this.state_city_cd);
-  }
+	constructor(partial: Partial<City>) {
+		super();
+		Object.assign(this, partial);
+	}
 
 
-  @AfterUpdate()
-  logupdate()
-  {
-    console.log('updated with ID' ,this.state_city_cd);
-  }
+	@AfterInsert()
+	loginsert() {
+		console.log('inserted with ID', this.state_city_cd);
+	}
 
 
-  @AfterRemove()
-  logremove()
-  {
-    console.log('removed with ID' ,this.state_city_cd);
-  }
+	@AfterUpdate()
+	logupdate() {
+		console.log('updated with ID', this.state_city_cd);
+	}
+
+
+	@AfterRemove()
+	logremove() {
+		console.log('removed with ID', this.state_city_cd);
+	}
 }

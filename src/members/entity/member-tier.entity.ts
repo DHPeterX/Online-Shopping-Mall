@@ -1,4 +1,4 @@
-import { IBaseEntity } from '../../common/web/base/i-base.entity';
+import { IBaseEntity } from '../../common/web/base/i-entity.base';
 import { Column, Entity } from 'typeorm';
 
 @Entity('TB_CL_MBR_TIER')

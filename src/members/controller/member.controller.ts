@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Logger, Param, Post } from '@nestjs/common';
-import { IBaseController } from '../../common/web/base/i-base.controller';
+import { IBaseController } from '../../common/web/base/i-controller.base';
 import { MemberService } from '../service';
 import { SysDictConfigEntity } from '../../system/entity';
 import {
