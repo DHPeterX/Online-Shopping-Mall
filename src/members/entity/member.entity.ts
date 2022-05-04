@@ -63,7 +63,7 @@ export class MemberEntity extends IBaseEntity {
 
 	@IsOptional()
 	@Column({ name: 'LST_LOGIN_DT', nullable: true })
-	lstLoginDate: string;
+	lstLoginDt: string;
 
 	@IsOptional()
 	@Column({ name: 'LST_ACCESS_TOKEN', nullable: true })

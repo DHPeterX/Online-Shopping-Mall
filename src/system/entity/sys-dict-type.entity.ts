@@ -4,6 +4,7 @@ import { SysComStatusConst } from '../../common/core/const';
 
 @Entity('SYS_DICT_TYPE')
 export class SysDictTypeEntity extends IBaseEntity {
+	
 	@Column({
 		name: 'DICT_KEY',
 		nullable: false,

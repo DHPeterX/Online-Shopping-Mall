@@ -20,9 +20,11 @@ import {
 	SysDictDataRepository,
 	SysDictLangRepository,
 	SysDictSelTagRepository,
-	SysDictTypeRepository,
+	SysDictTypeRepository, SysLogLoginRepository, SysLogOperRepository,
 } from './repository';
 import { SysHealthController } from './controller/sys-health.controller';
+import { SysLogLoginService } from './service/sys-log-login.service';
+import { SysLogOperService } from './service/sys-log-oper.service';
 
 /**
  * System Modules:
@@ -39,11 +41,13 @@ import { SysHealthController } from './controller/sys-health.controller';
  * */
 @Module({
 	imports: [
-		TypeOrmModule.forFeature([SysDictConfigRepository, SysDictTypeRepository, SysDictDataRepository, SysDictLangRepository, SysDictSelTagRepository]),
+		TypeOrmModule.forFeature([SysDictConfigRepository, SysDictTypeRepository, SysDictDataRepository
+			, SysDictLangRepository, SysDictSelTagRepository, SysLogOperRepository, SysLogLoginRepository]),
 	],
-	controllers: [SysHealthController, SysDictConfigController, SysDictTypeController, SysDictDataController, SysDictLangController, SysDictSelTagController ,SysDictCommController],
-	providers: [SysDictConfigService, SysDictTypeService, SysDictDataService, SysDictLangService, SysDictSelTagService],
-	exports: [],
+	controllers: [SysHealthController, SysDictConfigController, SysDictTypeController, SysDictDataController
+		, SysDictLangController, SysDictSelTagController ,SysDictCommController],
+	providers: [SysDictConfigService, SysDictTypeService, SysDictDataService, SysDictLangService, SysDictSelTagService, SysLogLoginService, SysLogOperService],
+	exports: [SysDictConfigService, SysLogLoginService, SysLogOperService],
 })
 export class SystemModule {
 }
