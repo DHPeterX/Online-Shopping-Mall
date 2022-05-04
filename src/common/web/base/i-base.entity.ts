@@ -1,4 +1,4 @@
-import { Column, PrimaryColumn } from 'typeorm';
+import { Column, CreateDateColumn, PrimaryColumn, UpdateDateColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { IsOptional } from 'class-validator';
 
@@ -39,6 +39,7 @@ export class IBaseEntity {
 	sysdate: Date;
 
 	@IsOptional()
+	@CreateDateColumn()
 	@Column({
 		name: 'CREATED_AT',
 		type: 'date',
@@ -47,6 +48,7 @@ export class IBaseEntity {
 	})
 	createdAt: string;
 
+	@IsOptional()
 	@Column({
 		length: 64,
 		name: 'CREATED_BY',
@@ -55,6 +57,7 @@ export class IBaseEntity {
 	})
 	createdBy: string;
 
+	@IsOptional()
 	@Column({
 		length: 255,
 		name: 'CREATED_NAME',
@@ -63,6 +66,8 @@ export class IBaseEntity {
 	})
 	createdName: string;
 
+	@IsOptional()
+	@UpdateDateColumn()
 	@Column({
 		name: 'UPDATED_AT',
 		type: 'date',
@@ -71,6 +76,7 @@ export class IBaseEntity {
 	})
 	updatedAt: string;
 
+	@IsOptional()
 	@Column({
 		length: 64,
 		name: 'UPDATED_BY',
@@ -79,6 +85,7 @@ export class IBaseEntity {
 	})
 	updatedBy: string;
 
+	@IsOptional()
 	@Column({
 		length: 255,
 		name: 'UPDATED_NAME',
