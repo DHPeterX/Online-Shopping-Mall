@@ -1,16 +1,15 @@
 import { Body, Controller, Delete, Get, Logger, Param, Post, Put } from '@nestjs/common';
 import { IBaseController } from 'src/common/web/base/i-controller.base';
 import { MemberTierService } from '../service';
-import { MemberGradeDto, MemberTierCreateDto, MemberTierUpdateDto } from '../dto';
-import { MemberGradeEntity, MemberTierEntity } from '../entity';
+import { MemberTierCreateDto, MemberTierUpdateDto } from '../dto';
+import { MemberTierEntity } from '../entity';
 
 @Controller('member-tier')
 export class MemberTierController extends IBaseController {
 	private logger = new Logger('MemberTierController', { timestamp: true });
 
 	constructor(
-		private memberTierService: MemberTierService)
-	{
+		private memberTierService: MemberTierService) {
 		super();
 	}
 

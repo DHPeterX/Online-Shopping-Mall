@@ -1,8 +1,9 @@
-import { Logger, ValidationPipe } from '@nestjs/common';
+import { ArgumentsHost, Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { TransformInterceptor } from './common/core/interceptors/transform.interceptor';
+import { HttpFilterException } from './common/core/filter';
 
 //console.log(process.env);
 
@@ -13,6 +14,7 @@ async function bootstrap() {
 	app.setGlobalPrefix('api/v1');
 	app.useGlobalPipes(new ValidationPipe());
 	app.useGlobalInterceptors(new TransformInterceptor());
+	app.useGlobalFilters(new HttpFilterException())
 	const port = process.env.PORT;
 
 	const config = new DocumentBuilder()

@@ -9,6 +9,7 @@ export class MemberRepository extends Repository<MemberEntity> {
 	private logger = new Logger('MemberRepository', { timestamp: true });
 
 	async findOneWithAssured(id:string):Promise<MemberEntity>{
+		console.log('findOneWithAssured');
 		const tgtObj:MemberEntity = await this.findOne(id);
 		if(!tgtObj){
 			throw new NotFoundException("Data Not Found");

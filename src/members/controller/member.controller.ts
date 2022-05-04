@@ -1,15 +1,9 @@
-import { Body, Controller, Delete, Get, Logger, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Logger, Param, Post, UseInterceptors } from '@nestjs/common';
 import { IBaseController } from '../../common/web/base/i-controller.base';
 import { MemberService } from '../service';
-import { SysDictConfigEntity } from '../../system/entity';
-import {
-	SysDictConfigDispDto,
-	SysDictConfigDispOrderDto,
-	SysDictConfigDto,
-} from '../../system/dto/sys-dict-config.dto';
 import { MemberEntity } from '../entity';
-import { Observable } from 'rxjs';
-import { MemberCreateDto, MemberDto, MemberUpdateDto } from '../dto';
+import { MemberCreateDto, MemberUpdateDto } from '../dto';
+import { LoggingInterceptor } from '../../common/core/interceptors/logging.interceptor';
 
 @Controller('member')
 export class MemberController extends IBaseController {
@@ -17,11 +11,12 @@ export class MemberController extends IBaseController {
 	private logger = new Logger('MemberController', { timestamp: true });
 
 	constructor(
-		private memberService: MemberService
+		private memberService: MemberService,
 	) {
 		super();
 	}
 
+	@UseInterceptors(LoggingInterceptor)
 	@Get()
 	async getAll(): Promise<MemberEntity[]> {
 		return await this.memberService.findAll();
