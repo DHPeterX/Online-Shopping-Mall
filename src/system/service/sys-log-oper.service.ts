@@ -2,15 +2,17 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SysLogOperRepository } from '../repository';
 import { SysLogOperEntity } from '../entity';
+import { IBaseService } from '../../common/web/base';
 
 @Injectable()
-export class SysLogOperService {
+export class SysLogOperService extends IBaseService {
 
 	private logger = new Logger('SysLogOperService', { timestamp: true });
 
 	constructor(
 		@InjectRepository(SysLogOperRepository)
 		private tgtObjRepo: SysLogOperRepository) {
+		super();
 	}
 
 	async findAll(): Promise<SysLogOperEntity[]> {

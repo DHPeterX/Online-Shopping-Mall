@@ -8,22 +8,25 @@ import {
 } from '../dto/sys-dict-config.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SysDictConfigEntity } from '../entity';
+import { IBaseService } from '../../common/web/base';
+
 
 @Injectable()
-export class SysDictConfigService {
+export class SysDictConfigService extends IBaseService {
 
 	private logger = new Logger('SysDictConfigService', { timestamp: true });
 
 	constructor(
 		@InjectRepository(SysDictConfigRepository)
 		private tgtObjRepo: SysDictConfigRepository) {
+		super();
 	}
 
 	async findAll(): Promise<SysDictConfigEntity[]> {
 		return await this.tgtObjRepo.find();
 	}
 
-	async findOne(_id: string): Promise<SysDictConfigEntity>{
+	async findOne(_id: string): Promise<SysDictConfigEntity> {
 		return await this.tgtObjRepo.findOneOrFail(_id);
 	}
 

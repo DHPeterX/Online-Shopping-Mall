@@ -4,7 +4,11 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 
 export class SecurityUtils {
 
-	public static isValidPassword(password: string): boolean {
+	public static isValidPwd(password: string): boolean {
+		return true;
+	}
+
+	public static isPasswordMatched(curPwd:string, oldPwd:string){
 		return true;
 	}
 
@@ -12,11 +16,12 @@ export class SecurityUtils {
 		return true;
 	}
 
-	public static doEncryptPassword(password: string): string {
+
+	public static doEncryptPwd(password: string): string {
 		return "";
 	}
 
-	public static doDecyptPassword(password: string): string  {
+	public static doDecyptPwd(password: string): string  {
 		return '';
 	}
 
@@ -53,10 +58,12 @@ export class SecurityUtils {
 	}
 
 	public static isAdminUser(): boolean {
+		// TODO: Get from TokenKey
 		return true;
 	}
 
 	public static isNormalUser(): boolean {
+		// TODO: Get from TokenKey
 		return true;
 	}
 

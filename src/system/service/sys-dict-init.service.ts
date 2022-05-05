@@ -2,6 +2,7 @@ import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
 import { SysDictConfigService } from './sys-dict-config.service';
 import { SysDictLangService } from './sys-dict-lang.service';
 import { SysDictTypeService } from './sys-dict-type.service';
+import { IBaseService } from '../../common/web/base';
 
 @Injectable()
 export class SysDictInitService implements OnApplicationBootstrap {
