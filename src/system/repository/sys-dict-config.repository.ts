@@ -8,6 +8,7 @@ import {
 	SysDictConfigDispOrderDto,
 	SysDictConfigUpdateDto,
 } from '../dto/sys-dict-config.dto';
+import { IBaseRepository } from '../../common/web/base';
 
 @EntityRepository(SysDictConfigEntity)
 export class SysDictConfigRepository extends Repository<SysDictConfigEntity> {
@@ -48,8 +49,8 @@ export class SysDictConfigRepository extends Repository<SysDictConfigEntity> {
 
 		try {
 
-		} catch (error) {
-
+		} catch (err) {
+			this.logger.error(err.message);
 		}
 
 	}

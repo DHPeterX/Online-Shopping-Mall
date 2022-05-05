@@ -1,1 +1,1 @@
-export * from './http-filter.exception';
+export * from './http-exception.filter';

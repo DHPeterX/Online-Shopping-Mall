@@ -9,7 +9,7 @@ import {
 } from '../exceptions';
 
 @Catch()
-export class HttpFilterException implements ExceptionFilter {
+export class HttpExceptionFilter implements ExceptionFilter {
 	catch(exception: unknown, host: ArgumentsHost) {
 		const context = host.switchToHttp();
 		const response = context.getResponse<Response>();
@@ -27,10 +27,6 @@ export class HttpFilterException implements ExceptionFilter {
 			console.log("Exception Group B");
 			status = HttpStatus.BAD_REQUEST;
 
-		} else if(exception instanceof (NotFoundException)) {
-			console.log("Exception Group C");
-			status = HttpStatus.NO_CONTENT;
-			statusMsg = "Data No Found";
 		} else if(exception instanceof (HttpException || GlobalException)) {
 			console.log("Exception Group D");
 			status = HttpStatus.BAD_REQUEST;

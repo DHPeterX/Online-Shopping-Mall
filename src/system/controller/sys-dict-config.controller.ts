@@ -47,7 +47,7 @@ export class SysDictConfigController extends IBaseController {
 		this.logger.log({ id, inParams });
 	}
 
-	@Post('/:id/updateDisp')
+	@Post('/{:id}/updateDisp')
 	async updateDisp(@Param() id: string, @Body() inParams: SysDictConfigDispDto): Promise<void> {
 		this.logger.log({ id, inParams });
 	}

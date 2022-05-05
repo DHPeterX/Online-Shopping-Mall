@@ -32,11 +32,11 @@ export class SysDictConfigService extends IBaseService {
 
 
 	async createSysConfig(inParams: Partial<SysDictConfigDto>): Promise<any> {
-		return;
+		return await this.tgtObjRepo.createSysDictConfig(SysDictConfigDto);
 	}
 
 	async updateSysConfig(inParams: Partial<SysDictConfigDto>): Promise<any> {
-		return;
+		return await this.tgtObjRepo.updateSysDictConfig(SysDictConfigDto);
 	}
 
 	async updateStatus(inParams: SysDictConfigChangeStatusDto): Promise<any> {
